@@ -304,14 +304,12 @@ h2 {
 
 .sidearm-roster-player-header-info,
 .sidearm-roster-player-name {
-    font-size: 1.11vw;
-    /* Adjust text size */
+    font-size: 4vw;
 }
 
 .sidearm-roster-player-fields dt,
 .sidearm-roster-player-fields dd {
-    font-size: 1.11vw;
-    /* Adjust text size */
+    font-size: 4vw;
 }
 
 .profile-image {
