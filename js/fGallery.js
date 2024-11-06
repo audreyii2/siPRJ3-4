@@ -5,14 +5,13 @@ let currentImageIndex = 0;
 function preloadImages() {
     images = [
         // Add more gallery images with their specific styles here
-        { src: "img/IMG_9347.jpg", alt: "Gallery Display of Event, runner #1012" },
-        { src: "img/IMG_9345_V2F_2024-09-14_12-39-43_867.jpg", alt: "Gallery Display of Event, intense competition" },
-        { src: "img/IMG_4184(1).jpg", alt: "Gallery Display of Event, medallists" },
-        { src: "img/IMG_4181.jpg", alt: "Gallery Display of Event, team members preparing their nerves for a big competition" },
-        { src: "img/IMG_4178.jpg", alt: "Gallery Display of Event, runners exhausted by the sprint" },
-        { src: "img/IMG_4177.jpg", alt: "Gallery Display of Event, runners keeping up good pace" },
-        { src: "img/IMG_4176.jpg", alt: "Gallery Display of Event, marching, happy candidates" },
-        { src: "img/IMG_4175.jpg", alt: "Gallery Display of Event, candidates chilling out before the competition" }
+        { src: "img/IMG_20240829_171701146.jpg", alt: "Presenting Gallery Picture #1" },
+        { src: "img/IMG_8973.jpg", alt: "Presenting Gallery Picture #2" },
+        { src: "img/IMG_9018.jpg", alt: "Presenting Gallery Picture #3" },
+        { src: "img/IMG_9100.jpg", alt: "Presenting Gallery Picture #4" },
+        { src: "img/IMG_9200.jpg", alt: "Presenting Gallery Picture #5" },
+        { src: "img/IMG_9300.jpg", alt: "Presenting Gallery Picture #6" },
+        { src: "img/IMG_9299.jpg", alt: "Presenting Gallery Picture #7" },
     ];
 
     images.sort((a, b) => {
