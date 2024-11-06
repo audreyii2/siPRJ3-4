@@ -1,0 +1,608 @@
+/* General reset remains unchanged */
+* {
+    flex-direction: row;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: normal;
+}
+
+/* Basic styles remain unchanged */
+body {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+/* Specific styles from inline styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: #ffffff;
+}
+
+a {
+    color: #ffe0ff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: #ffffc1;
+    /* text color after clicked for dark mode */
+    font-style: italic;
+    text-decoration: underline;
+}
+
+a[href="#main"] {
+    font-size: 1rem;
+    /* Equivalent to h4 size */
+    font-weight: bold;
+}
+
+/* Apply touch/click effect on mobile devices! */
+a:active {
+    color: #ffffc1;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+nav {
+    background-color: #294E65;
+    display: table-row;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding: 10px 0;
+    height: 13vh;
+    width: 100%;
+    margin: 0 auto;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 10px 20px;
+}
+
+nav ul li a {
+    font-weight: bold;
+    font-size: 1.25rem;
+    /* Equivalent to h3 size */
+}
+
+header {
+    background-color: #192a3a;
+    display: table-cell;
+    text-align: center;
+    padding: 2rem;
+    border-bottom: 1px solid black;
+    height: 13vh;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h2 {
+    padding: 2rem 0;
+}
+
+/* Team Results table styling */
+#team-results table {
+    width: 83vw;
+    margin: auto;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+#team-results th,
+#team-results td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#team-results tbody tr:nth-child(odd) {
+    background-color: #27322b;
+}
+
+#team-results tbody tr:nth-child(even) {
+    background-color: #3c4840;
+}
+
+/* Athlete Results table styling */
+#athlete-table {
+    width: 83vw;
+    margin: 5vw auto;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+#athlete-table thead {
+    background-color: #1a6afd;
+    position: sticky;
+    top: 0;
+}
+
+#athlete-table th,
+#athlete-table td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#athlete-table th {
+    position: -webkit-sticky;
+    /* for Safari */
+    position: sticky;
+    z-index: 2;
+}
+
+#athlete-table tbody tr:nth-child(odd) {
+    background-color: #27322b;
+}
+
+#athlete-table tbody tr:nth-child(even) {
+    background-color: #3c4840;
+}
+
+/* Media Queries for screen widths */
+@media (min-width: 211px) {
+
+    #athlete-table th:nth-child(4),
+    #athlete-table td:nth-child(4),
+    #athlete-table th:nth-child(5),
+    #athlete-table td:nth-child(5) {
+        display: none;
+        column-width: 770px;
+    }
+}
+
+/* Floating action button for search */
+.fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #EBEBFF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    z-index: 1000;
+}
+
+.fab img {
+    width: 24px;
+    height: 24px;
+}
+
+#search-popup {
+    display: none;
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    z-index: 1001;
+    transition: transform 0.3s, opacity 0.3s;
+    transform: scale(0);
+    opacity: 0;
+}
+
+#search-popup.active {
+    display: block;
+    transform: scale(1);
+    opacity: 1;
+}
+
+#search-popup input[type="search"] {
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#search-popup button {
+    background-color: #315c77;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.highlighted {
+    color: #802342;
+    font-weight: bold;
+    background-color: #B7F0F0;
+    /* Highlight color */
+}
+
+.highlighted-focus {
+    background-color: #dcf9f9;
+    color: #D02F2F;
+    font-weight: bold;
+    border: 2px solid #D02F2F;
+}
+
+/* Individual Results Section */
+#individual-results {
+    position: relative;
+    overflow: hidden;
+    height: auto;
+}
+
+#individual-results.collapsible.active .content {
+    display: block;
+}
+
+#individual-results h2 {
+    cursor: pointer;
+}
+
+/* Styles for individual results section */
+.individual-result {
+    flex: 1;
+    text-align: center;
+    max-width: 30vw;
+    margin: 0.5vw;
+    position: relative;
+}
+
+.individual-result .card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s ease-in-out;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    /* Needed for 3D flip effect */
+}
+
+.individual-result:hover .card {
+    transform: rotateY(180deg);
+}
+
+.card .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card .front {
+    background: #294E65;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .back {
+    background: #192a3a;
+    color: #ffe0ff;
+    transform: rotateY(180deg);
+}
+
+.sidearm-roster-player-header-info,
+.sidearm-roster-player-name {
+    font-size: 1.11vw;
+    /* Adjust text size */
+}
+
+.sidearm-roster-player-fields dt,
+.sidearm-roster-player-fields dd {
+    font-size: 1.11vw;
+    /* Adjust text size */
+}
+
+.profile-image {
+    width: 100%;
+    max-height: 90px;
+    /* Adjusted height for flipping effect */
+    height: 75vh;
+    margin-left: 13vw;
+}
+
+/* Gallery Styles */
+#gallery .gallery-container .full-width-image img {
+    box-shadow: rgb(218, 165, 32) 10px 10px 5px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.gallery-container {
+    position: relative;
+    max-width: 53vw;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-container img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+}
+
+.gallery-container .prev,
+.gallery-container .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    background-color: #006151;
+    /* main theme color */
+    font-weight: bold;
+    font-size: 15px;
+    /* same size as h2 */
+    transition: 0.6s ease;
+    user-select: none;
+    width: 13vw;
+}
+
+.gallery-container .prev {
+    left: -13vw;
+}
+
+.gallery-container .next {
+    right: -13vw;
+}
+
+.gallery-container .prev:hover,
+.gallery-container .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.gallery-container .prev:hover .tooltip-text,
+.gallery-container .next:hover .tooltip-text {
+    display: block;
+}
+
+.tooltip-text {
+    display: none;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #16212d;
+    padding: 20px;
+    color: #ffffff;
+    width: 100%;
+}
+
+footer h3 {
+    margin-left: 2vw;
+}
+
+footer p {
+    margin-left: 2vw;
+}
+
+footer address,
+footer a {
+    /* margin-left: 2vw; */
+    color: #ffe0ff;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+    font-size: larger;
+}
+
+footer img {
+    max-width: 32px;
+    max-height: 32px;
+    margin-left: 2vw;
+}
+
+/* CSS for .time class */
+.time {
+    color: lightgreen;
+    background-color: black;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* CSS for .athlete class */
+.athlete {
+    color: lightcoral;
+    background-color: black;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* CSS for expandable images */
+.expandable-image {
+    transition: transform 0.3s ease;
+}
+
+.expandable-image:active,
+.expandable-image:focus {
+    transform: scale(1.3);
+}
+
+/* Floating action buttons for social media */
+.floating-buttons {
+    position: fixed;
+    bottom: 10rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    z-index: 1000;
+}
+
+.floating-buttons .fab {
+    background-color: #EBEBFF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.floating-buttons .fab:hover {
+    transform: scale(1.1);
+}
+
+.floating-buttons .fab img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Sparkle Button Effect */
+.sparkle-button {
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s, background-color 0.4s;
+}
+
+.sparkle-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: transform 0.5s, opacity 0.5s;
+    z-index: 1;
+    opacity: 0;
+}
+
+.sparkle-button:hover::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 1;
+}
+
+.sparkle-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+.sparkle-button:focus {
+    box-shadow: 0 0 8px 8px rgba(255, 255, 255, 0.6);
+}
+
+.sparkle-button:active::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 1;
+    transition: transform 0.1s, opacity 0.1s;
+}
+
+/* Toogle to Switch Color Scheme */
+.toggle-dark-mode {
+    position: fixed;
+    top: 50%;
+    right: 1vw;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.light-mode .toggle-dark-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.light-mode {
+    background-color: #e0e0ff;
+    color: #003030;
+    /* Change unstyled text color in div#full-content to white */
+}
+
+body.light-mode #full-content {
+    color: #ffffff;
+    background-color: #003030;
+}
+
+body.light-mode a {
+    color: #001f33;
+    background-color: #e0e0ff;
+    /* Complementary color for the dark link color */
+}
+
+body.light-mode header {
+    background-color: #e0dbf0;
+}
+
+body.light-mode nav {
+    background-color: #d6b19d;
+    /* Contrasting color of #294E65 */
+    background-color: #c1b7fa;
+    /* Contrasting color */
+}
+
+body.light-mode footer h3 {
+    color: #ffffff;
+    /* Set h3 in footer to white */
+}
+
+body.light-mode table tbody tr {
+    color: #ffffff;
+    /* Set text in tr elements in tables in light mode to white */
+}
+
+body.light-mode .collapsible h2,
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode h5 {
+    color: #192a3a;
+}
+
+body.light-mode .sparkle-button {
+    background-color: #e0d5c3;
+    color: #000080;
+}
+
+body.light-mode .expandable-image {
+    border-color: #192a3a;
+}
+
+body.light-mode .highlighted {
+    background-color: #ffff00;
+    color: #000000;
+}
+
+body.light-mode table thead {
+    background-color: #dfa6a1;
+}
