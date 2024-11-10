@@ -470,7 +470,7 @@ footer img {
 /* CSS for expandable images */
 .expandable-image {
     transition: transform 0.3s ease;
-    width: 32px; 
+    width: 32px;
     height: 32px;
 }
 
@@ -574,16 +574,18 @@ footer img {
     transform: translateY(-50%);
     width: 48px;
     height: 48px;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: lightgoldenrodyellow;
+    color: darkblue;
     border: none;
     cursor: pointer;
     transition: background-color 0.5s, color 0.5s;
+    block-size: auto;
 }
 
 .light-mode .toggle-dark-mode {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: darkblue;
+    color: lightgoldenrodyellow;
+    block-size: auto;
 }
 
 body.light-mode {
