@@ -62,7 +62,7 @@ setTimeout(function () {
     banner.innerHTML = "Go Eagle";
     banner.style.position = 'fixed';
     banner.style.width = 'min-content';
-    banner.style.top = '20px';
+    banner.style.top = '120px';
     banner.style.left = '50%';
     banner.style.transform = 'translateX(-50%)';
     banner.style.background = '#16212d';
@@ -121,7 +121,7 @@ setTimeout(function () {
         if (styleSheet) {
             document.head.removeChild(styleSheet);
         }
-    }, 40000); // Banner appears for 40 seconds
+    }, 360); // Banner appears for 360 seconds
 }, 2000); // Delay of 2 seconds before the banner appears
 
 // Create the toggle button to turn off all animation
@@ -134,6 +134,6 @@ button.style.right = '0';
 button.style.transform = 'translateY(-50%)';
 button.style.padding = '10px';
 button.style.zIndex = '1001';
-button.style.width = "min-content";
+button.style.width = 'min-content';
 button.onclick = toggleAnimation;
 document.body.appendChild(button);
