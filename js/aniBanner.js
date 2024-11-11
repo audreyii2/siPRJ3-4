@@ -56,35 +56,29 @@ setTimeout(function () {
 
     document.body.appendChild(banner);
 
+    // Create the button to turn off the animation
+    var button = document.createElement('button');
+    button.innerHTML = "Turn Off Animation";
+    button.style.position = 'fixed';
+    button.style.top = '75%'; // 1/4 from the bottom of the page
+    button.style.right = '0';  
+    button.style.transform = 'translateY(-50%)';
+    button.style.padding = '10px';
+    button.style.zIndex = '1001';
+    button.onclick = function () {
+        var banner = document.getElementById('banner');
+        var styleSheet = document.getElementById('glitchStyle');
+        if (banner) {
+            banner.style.animation = 'none'; // Stop the animation
+        }
+        if (styleSheet) {
+            document.head.removeChild(styleSheet); // Remove the stylesheet
+        }
+    };
+    document.body.appendChild(button);
+
     setTimeout(function () {
         banner.remove();
         document.head.removeChild(styleSheet);
     }, 40000); // Banner appears for 40 seconds
-}, 2000); // Delay of 2 seconds before the banner appears
-
-// Modified line to add an ID to the banner for easy reference
-banner.id = 'banner'; 
-
-// Modified line to add an ID to the stylesheet for easy reference
-styleSheet.id = 'glitchStyle'; 
-
-// Create the button to turn off the animation
-var button = document.createElement('button');
-button.innerHTML = "Turn Off Animation";
-button.style.position = 'fixed';
-button.style.top = '75%'; // 1/4 from the bottom of the page
-button.style.right = '0';  
-button.style.transform = 'translateY(-50%)';
-button.style.padding = '10px';
-button.style.zIndex = '1001';
-button.onclick = function () {
-    var banner = document.getElementById('banner');
-    var styleSheet = document.getElementById('glitchStyle');
-    if (banner) {
-        banner.style.animation = 'none'; // Stop the animation
-    }
-    if (styleSheet) {
-        document.head.removeChild(styleSheet); // Remove the stylesheet
-    }
-};
-document.body.appendChild(button);
+}, 2000); // Delay of 2 seconds before the banner appears 
