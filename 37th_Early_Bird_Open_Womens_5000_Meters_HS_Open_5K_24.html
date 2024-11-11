@@ -738,9 +738,10 @@
                 <div class="full-width-image">
                     <img id="gallery-image" src="img/18820257.jpg" alt="Gallery Display of Event, runner #992">
                 </div>
-                <a class="prev" onclick="changeImage(-1)" title="Previous Image">
+                <!-- Add tabindex="0" to the navigation elements -->
+                <a class="prev" onclick="changeImage(-1)" title="Previous Image" tabindex="0">
                     &#10094;<span class="tooltip-text">Back</span></a>
-                <a class="next" onclick="changeImage(1)" title="Next Image">
+                <a class="next" onclick="changeImage(1)" title="Next Image" tabindex="0">
                     &#10095;<span class="tooltip-text">Next</span></a>
             </div>
         </section>
@@ -778,80 +779,100 @@
 
     <button class="toggle-dark-mode" aria-label="Toggle Dark Mode"> >>> Here to Switch Color Scheme <<< </button>
 
-    <!-- Floating action button for search -->
-    <button class="fab" aria-label="Search">
-        <img class="expandable-image" src="img/search_button_icon.png" alt="Search Icon">
-    </button>
+            <!-- Floating action button for search -->
+            <button class="fab" aria-label="Search">
+                <img class="expandable-image" src="img/search_button_icon.png" alt="Search Icon">
+            </button>
 
-    <div id="search-popup">
-        <form role="search" method="get" class="search-form" action="#">
-            <label>
-                <span class="screen-reader-text">Tap
-                    <a href="https://www.instagram.com/a2skylinexc/" aria-label="Instagram linked on Logo in Search">
-                        <img src="img/floating_instagram.png" alt="Logo of Instagram">
-                    </a>
-                    <a href="https://x.com/a2skylinexc" aria-label="Twitter linked on Logo in Search">
-                        <img src="img/floating_twitter.png" alt="Logo of Twitter">
-                    </a>:
-                </span>
-                <input type="search" class="search-field" placeholder="Search for specific words:" value="" name="s">
-            </label>
-            <button type="submit" class="search-submit">Search</button>
-        </form>
-    </div>
+            <div id="search-popup">
+                <form role="search" method="get" class="search-form" action="#">
+                    <label>
+                        <span class="screen-reader-text">Tap
+                            <a href="https://www.instagram.com/a2skylinexc/"
+                                aria-label="Instagram linked on Logo in Search">
+                                <img src="img/floating_instagram.png" alt="Logo of Instagram">
+                            </a>
+                            <a href="https://x.com/a2skylinexc" aria-label="Twitter linked on Logo in Search">
+                                <img src="img/floating_twitter.png" alt="Logo of Twitter">
+                            </a>:
+                        </span>
+                        <input type="search" class="search-field" placeholder="Search for specific words:" value=""
+                            name="s">
+                    </label>
+                    <button type="submit" class="search-submit">Search</button>
+                </form>
+            </div>
 
-    <script src="js/aniBanner.js"></script>
-    <script src="js/aSearch.js"></script>
-    <script src="js/fCollapse.js"></script>
+            <script src="js/aniBanner.js"></script>
+            <script src="js/aSearch.js"></script>
+            <script src="js/fCollapse.js"></script>
 
-    <!-- Java Script for Gallery Display-->
-    <script>
-        // Gallery carousel script with special styles
-        let images = [];
-        let currentImageIndex = 0;
+            <!-- Java Script for Gallery Display-->
+            <script>
+                // Gallery carousel script with special styles
+                let images = [];
+                let currentImageIndex = 0;
 
-        function preloadImages() {
-            images = [
-                // Add more gallery images with their specific styles here
-                { src: "img/IMG_20240829_171701146.jpg", alt: "Presenting Gallery Picture #1" },
-                { src: "img/IMG_8973.jpg", alt: "Presenting Gallery Picture #2" },
-                { src: "img/IMG_9018.jpg", alt: "Presenting Gallery Picture #3" },
-                { src: "img/IMG_9100.jpg", alt: "Presenting Gallery Picture #4" },
-                { src: "img/IMG_9200.jpg", alt: "Presenting Gallery Picture #5" },
-                { src: "img/IMG_9300.jpg", alt: "Presenting Gallery Picture #6" },
-                { src: "img/IMG_9299.jpg", alt: "Presenting Gallery Picture #7" },
-            ];
+                function preloadImages() {
+                    images = [
+                        // Add more gallery images with their specific styles here
+                        { src: "img/IMG_20240829_171701146.jpg", alt: "Presenting Gallery Picture #1" },
+                        { src: "img/IMG_8973.jpg", alt: "Presenting Gallery Picture #2" },
+                        { src: "img/IMG_9018.jpg", alt: "Presenting Gallery Picture #3" },
+                        { src: "img/IMG_9100.jpg", alt: "Presenting Gallery Picture #4" },
+                        { src: "img/IMG_9200.jpg", alt: "Presenting Gallery Picture #5" },
+                        { src: "img/IMG_9300.jpg", alt: "Presenting Gallery Picture #6" },
+                        { src: "img/IMG_9299.jpg", alt: "Presenting Gallery Picture #7" },
+                    ];
 
-            images.sort((a, b) => {
-                return a.src.localeCompare(b.src);
-            });
-        }
+                    images.sort((a, b) => {
+                        return a.src.localeCompare(b.src);
+                    });
+                }
 
-        function showImage(index) {
-            const imgElement = document.getElementById("gallery-image");
-            imgElement.src = images[index].src;
-        }
+                function showImage(index) {
+                    const imgElement = document.getElementById("gallery-image");
+                    imgElement.src = images[index].src;
+                }
 
-        function changeImage(n) {
-            currentImageIndex += n;
-            if (currentImageIndex >= images.length) {
-                currentImageIndex = 0;
-            } else if (currentImageIndex < 0) {
-                currentImageIndex = images.length - 1;
-            }
-            showImage(currentImageIndex);
-        }
+                // Modified function to prevent looping to the first image
+                function changeImage(n) {
+                    currentImageIndex += n;
+                    if (currentImageIndex >= images.length) {
+                        currentImageIndex = images.length - 1;
+                    } else if (currentImageIndex < 0) {
+                        currentImageIndex = 0;
+                    }
+                    showImage(currentImageIndex);
+                }
 
-        // Initialize gallery
-        window.onload = function () {
-            preloadImages();
-            showImage(currentImageIndex);
-        };
-    </script>
+                // Initialize gallery
+                window.onload = function () {
+                    preloadImages();
+                    showImage(currentImageIndex);
+                    // Add keyboard navigation for the gallery
+                    document.addEventListener("keydown", function (event) {
+                        if (event.key === "ArrowRight") {
+                            // Navigate to the next image
+                            changeImage(1);
+                        } else if (event.key === "ArrowLeft") {
+                            // Navigate to the previous image
+                            changeImage(-1);
+                        } else if ((event.key === "Tab") && (document.activeElement.classList.contains("next"))) {
+                            // If Tab is pressed on the last image, stop looping and focus on the next section
+                            event.preventDefault();
+                            const nextSection = document.querySelector("section + section");
+                            if (nextSection) {
+                                nextSection.querySelector('a, button, input, textarea, select').focus();
+                            }
+                        }
+                    });
+                };
+            </script>
 
-    <script src="js/fRead.js"></script>
-    <script src="js/imgFinder.js"></script>
-    <script src="js/swColor.js"></script>
+            <script src="js/fRead.js"></script>
+            <script src="js/imgFinder.js"></script>
+            <script src="js/swColor.js"></script>
 
 </body>
 
