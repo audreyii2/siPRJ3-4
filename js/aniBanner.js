@@ -121,7 +121,7 @@ setTimeout(function () {
         if (styleSheet) {
             document.head.removeChild(styleSheet);
         }
-    }, 360); // Banner appears for 360 seconds
+    }, 3600); // Banner appears for 3600 seconds
 }, 2000); // Delay of 2 seconds before the banner appears
 
 // Create the toggle button to turn off all animation
