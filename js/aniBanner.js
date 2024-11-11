@@ -3,6 +3,7 @@ setTimeout(function () {
     var banner = document.createElement('div');
     banner.innerHTML = "Go Eagle";
     banner.style.position = 'fixed';
+    banner.style.width = 'min-content';
     banner.style.top = '20px';
     banner.style.left = '50%';
     banner.style.transform = 'translateX(-50%)';
