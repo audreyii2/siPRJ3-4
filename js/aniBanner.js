@@ -11,7 +11,7 @@ function toggleAnimation() {
         button.innerHTML = "Turn On All Animation";
     } else {
         // Turn on animation
-        if (banner) banner.style.animation = 'glitch 1s infinite';
+        if (banner) banner.style.animation = 'glitch 60s infinite';
         if (!styleSheet) {
             var newStyleSheet = document.createElement("style");
             newStyleSheet.id = 'glitchStyle';
@@ -73,7 +73,7 @@ setTimeout(function () {
     banner.style.zIndex = '1000';
     banner.style.fontFamily = 'orbitron', 'Audiowide', 'Bungee', 'Russo One', 'Electrolize';
     banner.style.textShadow = '0 0 5px #ff69b4, 0 0 10px #ff69b4, 0 0 15px #ff69b4';
-    banner.style.animation = 'glitch 1s infinite';
+    banner.style.animation = 'glitch 6s infinite';
 
     // Keyframes for the glitch effect
     var styleSheet = document.createElement("style");
@@ -121,7 +121,7 @@ setTimeout(function () {
         if (styleSheet) {
             document.head.removeChild(styleSheet);
         }
-    }, 3600); // Banner appears for 3600 seconds
+    }, 360); // Banner appears for 360 seconds
 }, 2000); // Delay of 2 seconds before the banner appears
 
 // Create the toggle button to turn off all animation
