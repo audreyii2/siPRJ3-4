@@ -567,6 +567,18 @@ footer img {
     transition: transform 0.1s, opacity 0.1s;
 }
 
+.toggle-no-animation {
+    position: fixed;
+    top: 75%;
+    right: 0px;
+    transform: translateY(-50%);
+    padding: 10px;
+    z-index: 1001;
+    width: min-content;
+    background-color:wheat;
+    color:royalblue;
+}
+
 /* Toogle to Switch Color Scheme */
 .toggle-dark-mode {
     position: fixed;
