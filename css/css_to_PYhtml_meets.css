@@ -475,11 +475,6 @@ footer img {
     height: 32px;
 }
 
-.ath-logo {
-    width: 64px;
-    height: 64px;
-}
-
 .expandable-image:active,
 .expandable-image:focus {
     transform: scale(1.3);
